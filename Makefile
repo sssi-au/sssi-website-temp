@@ -13,3 +13,10 @@ deploy-infrastructure:
 		--stack-name $(STACK)-infrastructure \
 		--template-body file://s3infra.json \
 		--parameters ParameterKey=DomainName,ParameterValue=$(DOMAIN)
+
+update-infrastructure:
+	AWS_DEFAULT_REGION=ap-southeast-2 \
+	aws cloudformation update-stack \
+		--stack-name $(STACK)-infrastructure \
+		--template-body file://s3infra.json \
+		--parameters ParameterKey=DomainName,ParameterValue=$(DOMAIN)

@@ -39,6 +39,30 @@
 	            }
 	        }
 	    }
+	},
+	"AnotherWWWRedirectBucket": {
+	    "Type": "AWS::S3::Bucket",
+	    "Properties": {
+	        "BucketName": "spatialsciences.org",
+	        "AccessControl": "BucketOwnerFullControl",
+	        "WebsiteConfiguration": {
+	            "RedirectAllRequestsTo": {
+	                "HostName": {"Ref": "DomainName"}
+	            }
+	        }
+	    }
+	},
+	"YetAnotherWWWRedirectBucket": {
+	    "Type": "AWS::S3::Bucket",
+	    "Properties": {
+	        "BucketName": "spatialsciences.org.au",
+	        "AccessControl": "BucketOwnerFullControl",
+	        "WebsiteConfiguration": {
+	            "RedirectAllRequestsTo": {
+	                "HostName": {"Ref": "DomainName"}
+	            }
+	        }
+	    }
 	}
-	}
+  }
 }
