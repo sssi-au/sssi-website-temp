@@ -3,6 +3,8 @@ STACK=sssi-org-au-test
 deploy:
 	gulp build
 	aws s3 sync ./dist s3://$(DOMAIN) --acl public-read
+	# Tell the CDN to refresh everything... This costs money if you do it too much
+	aws cloudfront create-invalidation --distribution-id E1AK4Y07WQUSX5 --paths '/*'
 
 run:
 	gulp serve
